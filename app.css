@@ -3934,11 +3934,33 @@ ul {
 /*////////////////////////////////////////////////////
   個別
 ////////////////////////////////////////////////////*/
+.font-point {
+  font-family: 'Lato', sans-serif; }
+
 img.circle-icon {
   margin: 2rem 0 1rem; }
 
 .callout {
   border-top: none; }
+
+.sns-column li {
+  display: inline-block;
+  font-size: 30px;
+  margin-left: 20px; }
+  .sns-column li:before {
+    content: ''; }
+  .sns-column li:first-child {
+    margin-left: 0; }
+
+footer {
+  text-align: center; }
+  footer .sns-column {
+    left: 0;
+    display: inline-block;
+    margin: 0;
+    margin-top: 20px; }
+    footer .sns-column li a {
+      color: #fff; }
 
 @media screen and (max-width: 640px) {
   .callout {

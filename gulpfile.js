@@ -1,5 +1,9 @@
 var gulp = require('gulp');
 var $    = require('gulp-load-plugins')();
+var browserSync = require("browser-sync");
+
+// browserSyncのリロード
+var reload  = browserSync.reload;
 
 var sassPaths = [
   'bower_components/foundation-sites/scss',
@@ -18,6 +22,18 @@ gulp.task('sass', function() {
     .pipe(gulp.dest(''));
 });
 
-gulp.task('default', ['sass'], function() {
-  gulp.watch(['scss/**/*.scss'], ['sass']);
+// browserSync ルートはdest
+gulp.task("browserSync", function () {
+   browserSync.init({
+       server: {
+           baseDir: "./" // ルートとなるディレクトリを指定
+       }
+   });
 });
+
+gulp.task("watch",function(){
+   gulp.watch('scss/**/*.scss', ['sass']),
+   gulp.watch(['**/*.html',　'**/*.css'], reload);
+});
+
+gulp.task("default",["watch", "browserSync"])
